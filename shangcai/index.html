@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>尚彩服饰 - 时尚 · 品质 · 生活</title>
+<meta name="description" content="尚彩服饰官网 - 专注时尚女装设计与制造，品质面料，精工细作，让每一位女性穿出自信与美丽。">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --primary: #c94f6d;
+    --primary-dark: #a83a56;
+    --dark: #2b2430;
+    --gray: #6b6470;
+    --light: #faf7f8;
+    --gold: #d4a853;
+  }
+  body { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; color: var(--dark); background: #fff; line-height: 1.7; }
+  a { text-decoration: none; color: inherit; }
+  img { max-width: 100%; display: block; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* ===== 导航 ===== */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(255,255,255,.96); backdrop-filter: blur(10px);
+    box-shadow: 0 1px 10px rgba(0,0,0,.06);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .logo { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 700; color: var(--primary); }
+  .logo-mark {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--gold));
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-size: 17px; font-weight: 700;
+  }
+  .logo small { font-size: 11px; font-weight: 400; color: var(--gray); display: block; letter-spacing: 2px; }
+  nav ul { display: flex; gap: 34px; list-style: none; }
+  nav a { font-size: 15px; color: var(--dark); padding: 6px 0; position: relative; }
+  nav a::after { content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 2px; background: var(--primary); transition: .3s; }
+  nav a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--primary); color: #fff !important; padding: 9px 22px;
+    border-radius: 22px; font-size: 14px;
+  }
+  .nav-cta::after { display: none; }
+  .nav-cta:hover { background: var(--primary-dark); }
+
+  /* ===== Hero ===== */
+  .hero {
+    min-height: 92vh; display: flex; align-items: center;
+    background: linear-gradient(120deg, #fdf3f4 0%, #fbeeee 45%, #f7efdd 100%);
+    position: relative; overflow: hidden; padding-top: 68px;
+  }
+  .hero::before, .hero::after {
+    content: ""; position: absolute; border-radius: 50%; opacity: .5;
+  }
+  .hero::before { width: 480px; height: 480px; background: radial-gradient(circle, rgba(201,79,109,.14), transparent 70%); top: -120px; right: -80px; }
+  .hero::after { width: 380px; height: 380px; background: radial-gradient(circle, rgba(212,168,83,.18), transparent 70%); bottom: -100px; left: -60px; }
+  .hero-inner { display: flex; align-items: center; gap: 60px; position: relative; z-index: 1; }
+  .hero-text { flex: 1; }
+  .hero-tag {
+    display: inline-block; background: #fff; color: var(--primary);
+    padding: 6px 18px; border-radius: 20px; font-size: 13px;
+    letter-spacing: 3px; box-shadow: 0 2px 12px rgba(201,79,109,.15); margin-bottom: 22px;
+  }
+  .hero h1 { font-size: 52px; line-height: 1.25; letter-spacing: 2px; }
+  .hero h1 em { font-style: normal; color: var(--primary); }
+  .hero p { margin: 22px 0 34px; color: var(--gray); font-size: 17px; max-width: 480px; }
+  .hero-btns { display: flex; gap: 16px; }
+  .btn {
+    display: inline-block; padding: 13px 34px; border-radius: 28px;
+    font-size: 15px; transition: .3s; cursor: pointer;
+  }
+  .btn-primary { background: var(--primary); color: #fff; box-shadow: 0 6px 18px rgba(201,79,109,.3); }
+  .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  .btn-ghost { border: 1.5px solid var(--primary); color: var(--primary); }
+  .btn-ghost:hover { background: var(--primary); color: #fff; }
+  .hero-stats { display: flex; gap: 46px; margin-top: 52px; }
+  .stat b { font-size: 30px; color: var(--primary); display: block; }
+  .stat span { font-size: 13px; color: var(--gray); }
+  .hero-visual { flex: 1; position: relative; }
+  .hero-card {
+    width: 380px; height: 460px; margin-left: auto; border-radius: 24px;
+    background: linear-gradient(160deg, var(--primary) 0%, var(--primary-dark) 60%, #7d2840 100%);
+    position: relative; box-shadow: 0 30px 60px rgba(201,79,109,.35);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 34px;
+    color: #fff; overflow: hidden;
+  }
+  .hero-card::before {
+    content: "SC"; position: absolute; top: 28px; right: 30px;
+    font-size: 120px; font-weight: 800; opacity: .12; letter-spacing: -6px;
+  }
+  .hero-card h3 { font-size: 26px; margin-bottom: 8px; }
+  .hero-card p { opacity: .85; font-size: 14px; }
+  .hero-chip {
+    position: absolute; background: #fff; border-radius: 14px; padding: 12px 18px;
+    box-shadow: 0 10px 26px rgba(43,36,48,.14); font-size: 13px; color: var(--dark);
+    display: flex; align-items: center; gap: 9px;
+  }
+  .chip-a { top: 60px; left: -46px; }
+  .chip-b { bottom: 110px; right: -30px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--primary); }
+
+  /* ===== 通用区块 ===== */
+  section { padding: 90px 0; }
+  .sec-head { text-align: center; margin-bottom: 56px; }
+  .sec-head span { color: var(--gold); letter-spacing: 4px; font-size: 13px; text-transform: uppercase; }
+  .sec-head h2 { font-size: 34px; margin-top: 10px; letter-spacing: 1px; }
+  .sec-head p { color: var(--gray); margin-top: 12px; }
+
+  /* ===== 产品系列 ===== */
+  #products { background: var(--light); }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .card {
+    background: #fff; border-radius: 18px; overflow: hidden;
+    box-shadow: 0 4px 20px rgba(43,36,48,.06); transition: .35s;
+  }
+  .card:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(201,79,109,.16); }
+  .card-img { height: 240px; position: relative; display: flex; align-items: center; justify-content: center; }
+  .img-1 { background: linear-gradient(135deg, #e9b7c4, #c94f6d); }
+  .img-2 { background: linear-gradient(135deg, #f2d9a8, #d4a853); }
+  .img-3 { background: linear-gradient(135deg, #d8c9e8, #9a7bbd); }
+  .card-img::after {
+    content: attr(data-icon); font-size: 64px; opacity: .5; filter: grayscale(20%);
+  }
+  .card-body { padding: 24px; }
+  .card-body h3 { font-size: 19px; margin-bottom: 6px; }
+  .card-body p { color: var(--gray); font-size: 14px; margin-bottom: 14px; }
+  .card-link { color: var(--primary); font-size: 14px; font-weight: 600; }
+  .badge {
+    position: absolute; top: 16px; left: 16px; background: #fff;
+    color: var(--primary); font-size: 12px; padding: 5px 13px; border-radius: 14px;
+  }
+
+  /* ===== 关于我们 ===== */
+  .about { display: flex; gap: 60px; align-items: center; }
+  .about-visual {
+    flex: 1; height: 420px; border-radius: 22px;
+    background:
+      radial-gradient(circle at 30% 30%, rgba(212,168,83,.35), transparent 55%),
+      linear-gradient(150deg, #3a2f3d, #2b2430);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .about-visual span { font-size: 96px; font-weight: 800; color: rgba(255,255,255,.1); letter-spacing: -4px; }
+  .about-text { flex: 1; }
+  .about-text h2 { font-size: 32px; margin-bottom: 20px; }
+  .about-text > p { color: var(--gray); margin-bottom: 26px; }
+  .about-list { list-style: none; }
+  .about-list li { display: flex; gap: 12px; margin-bottom: 15px; font-size: 15px; }
+  .about-list li::before {
+    content: "✓"; color: #fff; background: var(--primary); flex-shrink: 0;
+    width: 22px; height: 22px; border-radius: 50%; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; margin-top: 2px;
+  }
+
+  /* ===== 服务优势 ===== */
+  #services { background: var(--light); }
+  .icons { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .icon-box {
+    background: #fff; border-radius: 18px; padding: 36px 26px; text-align: center;
+    box-shadow: 0 4px 18px rgba(43,36,48,.05); transition: .3s;
+  }
+  .icon-box:hover { transform: translateY(-6px); box-shadow: 0 14px 32px rgba(201,79,109,.14); }
+  .icon-box .ico {
+    width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 18px;
+    display: flex; align-items: center; justify-content: center; font-size: 28px;
+    background: linear-gradient(135deg, #fdf0f2, #fbe4e9);
+  }
+  .icon-box h3 { font-size: 17px; margin-bottom: 8px; }
+  .icon-box p { font-size: 13px; color: var(--gray); }
+
+  /* ===== 联系我们 ===== */
+  .contact-wrap { display: flex; gap: 50px; align-items: center; }
+  .contact-info { flex: 1; }
+  .contact-info h2 { font-size: 32px; margin-bottom: 18px; }
+  .contact-info > p { color: var(--gray); margin-bottom: 30px; }
+  .c-item { display: flex; gap: 16px; margin-bottom: 22px; align-items: flex-start; }
+  .c-item .ci {
+    width: 46px; height: 46px; border-radius: 13px; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--primary), var(--gold));
+    color: #fff; display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .c-item b { display: block; font-size: 15px; }
+  .c-item span { color: var(--gray); font-size: 14px; }
+  .contact-form {
+    flex: 1; background: var(--light); border-radius: 20px; padding: 36px;
+  }
+  .contact-form h3 { margin-bottom: 22px; font-size: 19px; }
+  .contact-form input, .contact-form textarea {
+    width: 100%; border: 1.5px solid #e8e0e3; background: #fff;
+    border-radius: 10px; padding: 13px 16px; font-size: 14px;
+    margin-bottom: 15px; font-family: inherit; outline: none; transition: .2s;
+  }
+  .contact-form input:focus, .contact-form textarea:focus { border-color: var(--primary); }
+  .contact-form textarea { height: 100px; resize: vertical; }
+  .contact-form button {
+    width: 100%; border: none; background: var(--primary); color: #fff;
+    padding: 14px; border-radius: 26px; font-size: 15px; cursor: pointer; transition: .3s;
+  }
+  .contact-form button:hover { background: var(--primary-dark); }
+
+  /* ===== 页脚 ===== */
+  footer { background: var(--dark); color: #b8b0bd; padding: 60px 0 24px; }
+  .foot { display: flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; margin-bottom: 40px; }
+  .foot h4 { color: #fff; font-size: 16px; margin-bottom: 16px; }
+  .foot ul { list-style: none; font-size: 14px; }
+  .foot li { margin-bottom: 9px; }
+  .foot a:hover { color: #fff; }
+  .foot-brand p { font-size: 14px; max-width: 300px; margin-top: 12px; }
+  .copyright {
+    border-top: 1px solid rgba(255,255,255,.09); padding-top: 22px;
+    text-align: center; font-size: 13px; color: #847d8c;
+  }
+
+  /* ===== 响应式 ===== */
+  @media (max-width: 960px) {
+    nav ul { display: none; }
+    .hero-inner { flex-direction: column; text-align: center; }
+    .hero h1 { font-size: 38px; }
+    .hero p { margin: 22px auto 34px; }
+    .hero-btns, .hero-stats { justify-content: center; }
+    .hero-visual { display: none; }
+    .grid { grid-template-columns: 1fr; }
+    .icons { grid-template-columns: repeat(2, 1fr); }
+    .about, .contact-wrap { flex-direction: column; }
+    .about-visual { width: 100%; height: 260px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 导航 -->
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">
+      <span class="logo-mark">彩</span>
+      <span>尚彩服饰<small>SHANGCAI FASHION</small></span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#">首页</a></li>
+        <li><a href="#products">产品系列</a></li>
+        <li><a href="#about">关于我们</a></li>
+        <li><a href="#services">服务优势</a></li>
+        <li><a class="nav-cta" href="#contact">联系我们</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="hero-tag">SHANGCAI · EST. 2012</span>
+      <h1>让每一位女性<br>穿出<em>自信与美丽</em></h1>
+      <p>尚彩服饰专注时尚女装设计与制造十余年，精选优质面料，精工细作，从设计到成衣的每一道工序，只为呈现最好的你。</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" href="#products">浏览新品系列</a>
+        <a class="btn btn-ghost" href="#contact">合作洽谈</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><b>12+</b><span>年行业深耕</span></div>
+        <div class="stat"><b>500+</b><span>合作门店</span></div>
+        <div class="stat"><b>2000+</b><span>原创款式</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <h3>2026 春夏新品</h3>
+        <p>轻奢通勤系列 · 全网上新</p>
+      </div>
+      <div class="hero-chip chip-a"><span class="dot"></span>优选天然面料</div>
+      <div class="hero-chip chip-b"><span class="dot"></span>原创设计师团队</div>
+    </div>
+  </div>
+</section>
+
+<!-- 产品系列 -->
+<section id="products">
+  <div class="container">
+    <div class="sec-head">
+      <span>Product Lines</span>
+      <h2>产品系列</h2>
+      <p>三大核心系列，覆盖通勤、休闲、礼服全场景</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img img-1" data-icon="👗"><span class="badge">热卖系列</span></div>
+        <div class="card-body">
+          <h3>优雅通勤系列</h3>
+          <p>干练剪裁 × 柔美细节，职场女性的从容之选</p>
+          <a class="card-link" href="#">查看系列 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img img-2" data-icon="🧥"><span class="badge">新品上市</span></div>
+        <div class="card-body">
+          <h3>轻奢休闲系列</h3>
+          <p>天然面料 × 宽松版型，舒适与时尚兼得</p>
+          <a class="card-link" href="#">查看系列 →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-img img-3" data-icon="🌸"><span class="badge">设计师款</span></div>
+        <div class="card-body">
+          <h3>礼服定制系列</h3>
+          <p>晚宴、年会、婚礼场合的一对一定制服务</p>
+          <a class="card-link" href="#">查看系列 →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 关于我们 -->
+<section id="about">
+  <div class="container about">
+    <div class="about-visual"><span>SHANGCAI</span></div>
+    <div class="about-text">
+      <h2>十余年，只为做好一件衣服</h2>
+      <p>尚彩服饰成立于 2012 年，集设计、生产、销售于一体。我们相信，好的服装不止于外观，更在于穿着的每一刻感受——从面料的触感，到剪裁的贴合，再到细节的缝制。</p>
+      <ul class="about-list">
+        <li>自建设计团队，每年推出 200+ 原创款式</li>
+        <li>自有无尘生产车间，通过 ISO9001 质量体系认证</li>
+        <li>精选新疆棉、桑蚕丝、澳洲羊毛等优质原料</li>
+        <li>覆盖全国 500+ 合作门店，出口东南亚与欧美市场</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 服务优势 -->
+<section id="services">
+  <div class="container">
+    <div class="sec-head">
+      <span>Our Advantages</span>
+      <h2>服务优势</h2>
+      <p>从设计到交付，每个环节都值得信赖</p>
+    </div>
+    <div class="icons">
+      <div class="icon-box">
+        <div class="ico">✂️</div>
+        <h3>原创设计</h3>
+        <p>资深设计师团队紧跟流行趋势，季度上新</p>
+      </div>
+      <div class="icon-box">
+        <div class="ico">🧵</div>
+        <h3>精工品质</h3>
+        <p>ISO9001 认证车间，三道质检层层把关</p>
+      </div>
+      <div class="icon-box">
+        <div class="ico">🚚</div>
+        <h3>快速交付</h3>
+        <p>现货 48 小时发货，定制 15 天交付</p>
+      </div>
+      <div class="icon-box">
+        <div class="ico">🤝</div>
+        <h3>灵活合作</h3>
+        <p>支持 ODM/OEM 代工、一件代发、区域代理</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 联系我们 -->
+<section id="contact">
+  <div class="container contact-wrap">
+    <div class="contact-info">
+      <h2>联系我们</h2>
+      <p>无论是批发合作、品牌代理还是定制需求，欢迎随时与我们联系，24 小时内回复。</p>
+      <div class="c-item">
+        <div class="ci">📞</div>
+        <div><b>咨询热线</b><span>400-888-6666（工作日 9:00-18:00）</span></div>
+      </div>
+      <div class="c-item">
+        <div class="ci">✉️</div>
+        <div><b>商务邮箱</b><span>business@shangcai-fashion.com</span></div>
+      </div>
+      <div class="c-item">
+        <div class="ci">📍</div>
+        <div><b>公司地址</b><span>广东省东莞市虎门镇时尚服装产业园 A 座 18 层</span></div>
+      </div>
+      <div class="c-item">
+        <div class="ci">💬</div>
+        <div><b>微信咨询</b><span>扫描官网底部二维码，添加商务微信</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>在线留言</h3>
+      <input type="text" placeholder="您的称呼">
+      <input type="tel" placeholder="联系电话">
+      <input type="text" placeholder="合作类型（批发 / 代理 / 定制）">
+      <textarea placeholder="请输入您的需求描述..."></textarea>
+      <button type="button">提交留言</button>
+    </div>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer>
+  <div class="container">
+    <div class="foot">
+      <div class="foot-brand">
+        <a class="logo" href="#" style="color:#fff">
+          <span class="logo-mark">彩</span>
+          <span style="color:#fff">尚彩服饰<small style="color:#847d8c">SHANGCAI FASHION</small></span>
+        </a>
+        <p>专注时尚女装十余年，让每一位女性穿出自信与美丽。</p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <ul>
+          <li><a href="#">首页</a></li>
+          <li><a href="#products">产品系列</a></li>
+          <li><a href="#about">关于我们</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>产品系列</h4>
+        <ul>
+          <li><a href="#products">优雅通勤系列</a></li>
+          <li><a href="#products">轻奢休闲系列</a></li>
+          <li><a href="#products">礼服定制系列</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>联系方式</h4>
+        <ul>
+          <li>热线：400-888-6666</li>
+          <li>邮箱：business@shangcai-fashion.com</li>
+          <li>地址：东莞虎门时尚产业园</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">© 2026 尚彩服饰 SHANGCAI FASHION 版权所有 · 粤ICP备XXXXXXXX号</div>
+  </div>
+</footer>
+
+</body>
+</html>
